@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Admin Home</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='vendor/admin/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/modal-video/css/modal-video.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/aos/aos.css') }}" rel="stylesheet">
+  
+    
+  <!-- Template Main CSS File -->
+  <link href="../static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header">
+    <div class="container">
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="{{ url_for('adminHome') }}">Home</a></li>
+          <li class="menu-active"><a href="#">Profile</a></li>
+          <li class="menu-active"><a href="#">Calender</a></li>
+          <li class="menu-active"><a href="#">Logout</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container" data-aos="fade-in">
+      <img src="../static/images/hero-img.png" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">
+    </div>
+  </section><!-- End Hero Section -->
+  
+  <main id="main">
+    <!-- ======= Get Started Section ======= -->
+    <section id="get-started" class="padd-section text-center">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="feature-block">
+
+              <img src="../static/images/teacher.png" alt="img" class="img-fluid">
+              <h4>Teacher</h4>
+              <p>You can create, edit and delete a teacher account</p>
+              <a href="{{ url_for('createTeacher') }}">Click here for more</a>
+
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="feature-block">
+
+              <img src="../static/images/student.png" alt="img" class="img-fluid">
+              <h4>Student</h4>
+              <p>You can create, edit and delete a student account</p>
+              <a href="{{ url_for('createStudent') }}">Click here for more</a>
+
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="feature-block">
+
+              <img src="../static/images/test.png" alt="img" class="img-fluid">
+              <h4>Test</h4>
+              <p>You can view, remove and edit a test</p>
+              <a href="#">Click here for more</a>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- End Get Started Section -->
+
+  </main><!-- End #main -->
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='vendor/admin/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/jquery.easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/modal-video/js/modal-video.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/owl.carousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/superfish/superfish.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/hoverIntent/hoverIntent.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/aos/aos.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='js/admin/main.js') }}"></script>
+

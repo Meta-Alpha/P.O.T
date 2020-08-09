@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Admin Home</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='vendor/admin/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/modal-video/css/modal-video.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/aos/aos.css') }}" rel="stylesheet">
+  
+    
+  <!-- Template Main CSS File -->
+  <link href="../static/css/style.css" rel="stylesheet">
+  <link href="../static/css/portal.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header">
+    <div class="container">
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="{{ url_for('adminHome') }}">Home</a></li>
+          <li class="menu-active"><a href="#">Profile</a></li>
+          <li class="menu-active"><a href="#">Calender</a></li>
+          <li class="menu-active"><a href="#">Logout</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="padd-section">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+          <h2>Create Student</h2>
+          <p class="separator">Enter the Student's details</p>
+        </div>
+
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-3 col-md-4">
+
+            <div class="info">
+              <div>
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                <p>Student Name</p>
+              </div>
+
+              <div class="email">
+                <i class="fa fa-envelope"></i>
+                <p>Username</p>
+              </div>
+
+              <div class="email">
+                <i class="fa fa-unlock" aria-hidden="true"></i>
+                <p>Password</p>
+              </div>
+
+              <div>
+                <i class="fa fa-phone"></i>
+                <p>Phone Number</p>
+                <br>
+              </div>
+			
+            <div>
+                <i class="fa fa-book" aria-hidden="true"></i>
+                <p>Class & Section</p>
+            </div>
+		</div>
+
+          </div>
+
+          <div class="col-lg-5 col-md-5">
+            <div class="form">
+              <form id="createStudent" method="POST" action="#">
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" id="Name" placeholder="Student Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="username" id="username" placeholder="ex: lakshmiPatel@jindal.com" data-rule="email" data-msg="Please enter a valid username" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" name="password" id="password" placeholder="initial password" data-rule="email" data-msg="initial password" />
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="phone" id="phone" placeholder="+91 *********" data-rule="minlen:4" data-msg="Please enter a valid phone number" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <table>
+                    <thead>
+                      <tr>
+                        <select name="class" id ="class">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                        </select>
+                      </tr>
+                      <tr>
+                        <select name="section" id="section">
+                          <option value="A">A</option>
+                          <option value="B">B</option>
+                          <option value="C">C</option>
+                          <option value="D">D</option>
+                        </select>
+                      </tr>
+                    </thead>
+                  </table>
+                  <div class="validate"></div>
+                </div>
+                <div class="text-center"><input type="submit" value="Add Student"/></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+  <script>
+    var toggler = document.getElementsByClassName("box");
+    var i;
+    
+    for (i = 0; i < toggler.length; i++) {
+      toggler[i].addEventListener("click", function() {
+        this.parentElement.querySelector(".nested").classList.toggle("active");
+        this.classList.toggle("check-box");
+      });
+    }
+  </script>
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='vendor/admin/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/jquery.easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/modal-video/js/modal-video.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/owl.carousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/superfish/superfish.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/hoverIntent/hoverIntent.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/aos/aos.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='js/admin/main.js') }}"></script>
+
+</body>
+
+</html>

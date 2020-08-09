@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Create Test</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='vendor/admin/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/modal-video/css/modal-video.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/aos/aos.css') }}" rel="stylesheet">
+    
+    
+    
+  <!-- Template Main CSS File -->
+  <link href="../static/css/style.css" rel="stylesheet">
+  <link href="../static/css/portal.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header">
+      <div class="container">
+        <nav id="nav-menu-container">
+          <ul class="nav-menu">
+            <li class="menu-active"><a href="{{ url_for('teacherHome') }}">Home</a></li>
+            <li class="menu-active"><a href="#">Profile</a></li>
+            <li class="menu-active"><a href="#">Calender</a></li>
+            <li class="menu-active"><a href="#">Logout</a></li>
+          </ul>
+        </nav><!-- #nav-menu-container -->
+      </div>
+    </header><!-- End Header -->
+  
+    <main id="main">
+        <section id="contact" class="padd-section">
+            <div class="container" data-aos="fade-up">
+              <div class="section-title text-center">
+                <h2>Create Test</h2>
+              </div>
+            </div>
+            <form id="createTest" method="POST" action="#">
+                <div class="form-group">
+                    <label for="testName">Test Name</label>
+                    <input type="text" id="testName" name="testName"><br><br>
+                    <label for="subject">Subject</label>
+                    <select name="subject" id="subject">
+                        <option value="Kannada">Kannada</option>
+                        <option value="English">English</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Science">Science</option>
+                        <option value="Social">Social</option>
+                    </select><br><br>
+                    <label for="class">Class</label>
+                    <select name="class" id="class">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select><br><br>
+                    <label for="section">Section</label>
+                    <select name="section" id="section">
+                        <option value="all">All</option>
+                        <option value="a">A</option>
+                        <option value="b">B</option>
+                        <option value="c">C</option>
+                        <option value="d">D</option>
+                    </select><br><br>
+                </div>
+                <div group="form-group" contenteditable="true">
+                    <label for="questionType">Question Type</label>
+                    <select name="questionType" id="questionType">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="mcq">MCQ</option>
+                        <option value="checkboxq">Checkbox</option>
+                        <option value="matchthefollowing">Match the Following</option>
+                        <option value="textanswer">Text Answers</option>
+                    </select><br><br>
+                    <label for="question">Question</label>
+                    <textarea class="scrollabletextbox" name="question" rows="2" cols="120"></textarea>
+                </div>
+                <div id="mcq" style="display:none;">
+                    <div class="container">
+                        <div class="row">
+                            <input type="hidden" name="count" value="1" />
+                            <div class="control-group" id="fields">
+                                <div class="controls" id="profs"> 
+                                    <form class="input-append">
+                                        <div id="field">
+                                            <input class="input" id="option1" name="option" type="radio" />
+                                            <label for="option1" id="opt1" contenteditable="true">Option</label>
+                                            <button id="b1" class="btn add-more" name="radio" type="button"> /+/ </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form> 
+        </section>
+    </main>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.js"></script>
+    <script>
+        $('#questionType').on('change',function(){
+        var selection = $(this).val();
+            switch(selection){
+                case "mcq":
+                    $("#mcq").show();
+                    $("#checkboxq").hide();
+                break;
+                case "checkboxq":
+                    $("#checkboxq").show();
+                    $("#mcq").hide();
+                break;
+                default:
+                    $("#checkboxq").hide();
+                    $("#mcq").hide()
+            }   
+        }); 
+    </script>
+    <script>
+        $(document).ready(function(){
+            var next = 1;
+            $(".add-more").click(function(e){
+                e.preventDefault();
+                var addto = "#opt" + next; 
+                var addRemove = "#opt" + next;
+                next = next + 1;
+                var addlabel = "#option" + next; 
+                var inputType = $(this).attr('name')
+                var newIn = '<input class="input" id="option' + next + '" name="option" type="' + inputType + '" />';
+                var newInput = $(newIn);
+                var label = '<label for="option' +  next + '" id="opt' + next +'" contenteditable="true">Option</label>';
+                var labelInput =$(label);
+                var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >-</button></div><div id="division' + (next-1) + '">';
+                var removeButton = $(removeBtn);
+                $(addto).after(newInput);
+                $(addlabel).after(labelInput);
+                $(addRemove).after(removeButton);
+               
+                
+
+                $('.remove-me').click(function(e){
+                    e.preventDefault();
+                    var fieldNum = this.id.charAt(this.id.length-1);
+                    console.log(fieldNum)
+                    var fieldID = "#option" + fieldNum;
+                    var optId = "#opt" + fieldNum;
+                    var divId = "#division" + fieldNum;
+                    $(this).remove();
+                    $(fieldID).remove();
+                    $(optId).remove();
+                    $(divId).remove();
+                });
+            });
+        });
+    </script>
+    <script src="{{ url_for('static', filename='vendor/admin/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/admin/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/admin/jquery.easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/admin/php-email-form/validate.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/admin/modal-video/js/modal-video.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/admin/owl.carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/admin/superfish/superfish.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/admin/hoverIntent/hoverIntent.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/admin/aos/aos.js') }}"></script>
+      
+        <!-- Template Main JS File -->
+    <script src="{{ url_for('static', filename='js/admin/main.js') }}"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>      
+  </body>
+</html>  

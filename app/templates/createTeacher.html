@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Admin Home</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='vendor/admin/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/modal-video/css/modal-video.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/admin/aos/aos.css') }}" rel="stylesheet">
+  
+    
+  <!-- Template Main CSS File -->
+  <link href="../static/css/style.css" rel="stylesheet">
+  <link href="../static/css/portal.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header">
+    <div class="container">
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="{{ url_for('adminHome') }}">Home</a></li>
+          <li class="menu-active"><a href="#">Profile</a></li>
+          <li class="menu-active"><a href="#">Calender</a></li>
+          <li class="menu-active"><a href="#">Logout</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="padd-section">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+          <h2>Create Teacher</h2>
+          <p class="separator">Enter the Teacher's details</p>
+        </div>
+
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-3 col-md-4">
+
+            <div class="info">
+              <div>
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                <p>Teacher Name</p>
+              </div>
+
+              <div class="email">
+                <i class="fa fa-envelope"></i>
+                <p>Username</p>
+              </div>
+
+              <div class="email">
+                <i class="fa fa-unlock" aria-hidden="true"></i>
+                <p>Password</p>
+              </div>
+
+              <div>
+                <i class="fa fa-phone"></i>
+                <p>Phone Number</p>
+                <br>
+              </div>
+			
+            <div>
+                <i class="fa fa-book" aria-hidden="true"></i>
+                <p>Subject & Class</p>
+            </div>
+		</div>
+
+          </div>
+
+          <div class="col-lg-5 col-md-5">
+            <div class="form">
+              <form id="createTeacher" method="POST" action="#">
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" id="Name" placeholder="Teacher Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="username" id="username" placeholder="ex: lakshmiPatel@jindal.com" data-rule="email" data-msg="Please enter a valid username" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control" name="password" id="password" placeholder="initial password" data-rule="email" data-msg="initial password" />
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="phone" id="phone" placeholder="+91 *********" data-rule="minlen:4" data-msg="Please enter a valid phone number" />
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <ul id="multiUL" name="class">
+                    <li><span class="box">Classes and Subjects</span>
+                      <ul class="nested">
+                        <li><span class="box">1</span>
+                              <ul class="nested">
+                                  <input type="checkbox" name="subject" value="{'class': '1','subject':'Kannnada'}">Kannada<br>
+                                  <input type="checkbox" name="subject" value="{'class': '1','subject':'English'}">English<br>
+                                  <input type="checkbox" name="subject" value="{'class': '1','subject':'Hindi'}">Hindi<br>
+                                  <input type="checkbox" name="subject" value="{'class': '1','subject':'Mathematics'}">Mathematics<br>
+                                  <input type="checkbox" name="subject" value="{'class': '1','subject':'Science'}">Science<br>
+                                  <input type="checkbox" name="subject" value="{'class': '1','subject':'Social'}">Social<br>
+                              </ul>
+                        </li>
+                        <li><span class="box">2</span>
+                              <ul class="nested">
+                                  <input type="checkbox" name="subject" value="{'class': '2','subject':'Kannnada'}">Kannada<br>
+                                  <input type="checkbox" name="subject" value="{'class': '2','subject':'English'}">English<br>
+                                  <input type="checkbox" name="subject" value="{'class': '2','subject':'Hindi'}">Hindi<br>
+                                  <input type="checkbox" name="subject" value="{'class ':'2','subject':'Mathematics'}">Mathematics<br>
+                                  <input type="checkbox" name="subject" value="{'class': '2','subject':'Science'}">Science<br>
+                                  <input type="checkbox" name="subject" value="{'class': '2','subject':'Social'}">Social<br>
+                              </ul>
+                        </li>
+                        <li><span class="box">3</span>
+                              <ul class="nested">
+                                  <input type="checkbox" name="subject" value="{'class': '3','subject':'Kannnada'}">Kannada<br>
+                                  <input type="checkbox" name="subject" value="{'class': '3','subject':'English}">English<br>
+                                  <input type="checkbox" name="subject" value="{'class': '3','subject':'Hindi'}">Hindi<br>
+                                  <input type="checkbox" name="subject" value="{'class': '3','subject':'Mathematics'}">Mathematics<br>
+                                  <input type="checkbox" name="subject" value="{'class': '3','subject':'Science'}">Science<br>
+                                  <input type="checkbox" name="subject" value="{'class': '3','subject':'Social'}" >Social<br>
+                              </ul>
+                        </li>
+                        <li><span class="box">4</span>
+                              <ul class="nested">
+                                  <input type="checkbox" name="subject" value="{'class': '4','subject':'Kannnada'}">Kannada<br>
+                                  <input type="checkbox" name="subject" value="{'class': '4','subject':'English'}">English<br>
+                                  <input type="checkbox" name="subject" value="{'class': '4','subject':'Hindi'}">Hindi<br>
+                                  <input type="checkbox" name="subject" value="{'class': '4','subject':'Mathematics'}">Mathematics<br>
+                                  <input type="checkbox" name="subject" value="{'class': '4','subject':'Science'}">Science<br>
+                                  <input type="checkbox" name="subject" value="{'class': '4','subject':'Social'}">Social<br>
+                              </ul>
+                        </li> 
+                        <li><span class="box">5</span>
+                              <ul class="nested">
+                                  <input type="checkbox" name="subject" value="{'class': '5','subject':'Kannnada'}">Kannada<br>
+                                  <input type="checkbox" name="subject" value="{'class': '5','subject':'English'}">English<br>
+                                  <input type="checkbox" name="subject" value="{'class': '5','subject':'Hindi'}">Hindi<br>
+                                  <input type="checkbox" name="subject" value="{'class': '5','subject':'Mathematics'}">Mathematics<br>
+                                  <input type="checkbox" name="subject" value="{'class': '5','subject':'Science'}">Science<br>
+                                  <input type="checkbox" name="subject" value="{'class': '5','subject':'Social'}">Social<br>
+                              </ul>
+                        </li>
+                        <li><span class="box">6</span>
+                              <ul class="nested">
+                                  <input type="checkbox" name="subject" value="{'class': '6','subject':'Kannnada'}">Kannada<br>
+                                  <input type="checkbox" name="subject" value="{'class': '6','subject':'English'}">English<br>
+                                  <input type="checkbox" name="subject" value="{'class': '6','subject':'Hindi'}">Hindi<br>
+                                  <input type="checkbox" name="subject" value="{'class': '6','subject':'Mathematics'}">Mathematics<br>
+                                  <input type="checkbox" name="subject" value="{'class': '6','subject':'Science'}">Science<br>
+                                  <input type="checkbox" name="subject" value="{'class': '6','subject':'Social'}">Social<br>
+                              </ul>
+                        </li>
+                        <li><span class="box">7</span>
+                              <ul class="nested">
+                                  <input type="checkbox" name="subject" value="{'class': '7','subject':'Kannnada'}">Kannada<br>
+                                  <input type="checkbox" name="subject" value="{'class': '7','subject':'English'}">English<br>
+                                  <input type="checkbox" name="subject" value="{'class': '7','subject':'Hindi'}">Hindi<br>
+                                  <input type="checkbox" name="subject" value="{'class': '7','subject':'Mathematics'}">Mathematics<br>
+                                  <input type="checkbox" name="subject" value="{'class': '7','subject':'Science'}">Science<br>
+                                  <input type="checkbox" name="subject" value="{'class': '7','subject':'Social'}">Social<br>
+                              </ul>
+                        </li>
+                        <li><span class="box">8</span>
+                              <ul class="nested">
+                                  <input type="checkbox" name="subject" value="{'class': '8','subject':'Kannnada'}">Kannada<br>
+                                  <input type="checkbox" name="subject" value="{'class': '8','subject':'English'}">English<br>
+                                  <input type="checkbox" name="subject" value="{'class': '8','subject':'Hindi'}">Hindi<br>
+                                  <input type="checkbox" name="subject" value="{'class': '8','subject':'Mathematics'}">Mathematics<br>
+                                  <input type="checkbox" name="subject" value="{'class': '8','subject':'Science'}">Science<br>
+                                  <input type="checkbox" name="subject" value="{'class': '8','subject':'Social'}">Social<br>
+                              </ul>
+                        </li>
+                        <li><span class="box">9</span>
+                              <ul class="nested">
+                                  <input type="checkbox" name="subject" value="{'class': '9','subject':'Kannnada'}">Kannada<br>
+                                  <input type="checkbox" name="subject" value="{'class': '9','subject':'English'}">English<br>
+                                  <input type="checkbox" name="subject" value="{'class': '9','subject':'Hindi'}">Hindi<br>
+                                  <input type="checkbox" name="subject" value="{'class': '9','subject':'Mathematics'}">Mathematics<br>
+                                  <input type="checkbox" name="subject" value="{'class': '9','subject':'Science'}">Science<br>
+                                  <input type="checkbox" name="subject" value="{'class': '9','subject':'Social'}">Social<br>
+                              </ul>
+                        </li>
+                        <li><span class="box">10</span>
+                              <ul class="nested">
+                                  <input type="checkbox" name="subject" value="{'class': '10','subject':'Kannnada'}">Kannada<br>
+                                  <input type="checkbox" name="subject" value="{'class': '10','subject':'English'}">English<br>
+                                  <input type="checkbox" name="subject" value="{'class': '10','subject':'Hindi'}">Hindi<br>
+                                  <input type="checkbox" name="subject" value="{'class': '10','subject':'Mathematics'}">Mathematics<br>
+                                  <input type="checkbox" name="subject" value="{'class': '10','subject':'Science'}">Science<br>
+                                  <input type="checkbox" name="subject" value="{'class': '10','subject':'Social'}">Social<br>
+                              </ul>
+                        </li> 
+                      </ul>
+                    </li>
+                  </ul> 
+                  <div class="validate"></div>
+                </div>
+                <div class="text-center"><input type="submit" value="Add Teacher"/></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+  <script>
+    var toggler = document.getElementsByClassName("box");
+    var i;
+    
+    for (i = 0; i < toggler.length; i++) {
+      toggler[i].addEventListener("click", function() {
+        this.parentElement.querySelector(".nested").classList.toggle("active");
+        this.classList.toggle("check-box");
+      });
+    }
+  </script>
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='vendor/admin/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/jquery.easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/modal-video/js/modal-video.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/owl.carousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/superfish/superfish.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/hoverIntent/hoverIntent.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/admin/aos/aos.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='js/admin/main.js') }}"></script>
+
+</body>
+
+</html>
